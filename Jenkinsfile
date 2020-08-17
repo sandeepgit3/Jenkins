@@ -5,6 +5,6 @@ pipeline {
      steps {
       echo 'This is a minimul pipeline'
       }
-     }
-    }
    }
+ }
+}
