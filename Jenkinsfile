@@ -1,8 +1,8 @@
 pipeline {
     agent any
     tools { 
-      Maven
-      Jdk
+      'Maven'
+      'Jdk'
     }
 }
     stages {
@@ -15,3 +15,8 @@ pipeline {
             }
         }
     }
+    stage ('Build') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+       }
