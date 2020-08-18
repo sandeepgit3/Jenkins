@@ -1,10 +1,9 @@
 pipeline {
     agent any
-    tools {
-        'Maven'
-        'JDK'
-      }
-}
+    tools { 
+        'Maven' 
+        'jdk' 
+    }
     stages {
         stage ('Initialize') {
             steps {
@@ -14,8 +13,7 @@ pipeline {
                 ''' 
             }
         }
-	}
-   stage ('Build') {
+	  stage ('Build') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
@@ -24,4 +22,3 @@ pipeline {
                     junit 'target/surefire-reports/**/*.xml' 
                 }
             }
-        }
